@@ -20,11 +20,11 @@ const ProductCard = (data) => {
 
     return (
         <div className='w-fit h-full group duration-300 rounded-lg'>
-            <div className='bg-gray-200  bg-opacity-50 backdrop-blur-2xl flex flex-col gap-2 w-fit h-full border border-pink rounded-lg shadow-md group-hover:shadow-xl hover:scale-105 duration-300'>
+            <div className='bg-gray-200  bg-opacity-50 backdrop-blur-2xl flex flex-col gap-2 w-auto h-full border border-pink rounded-lg shadow-md group-hover:shadow-xl hover:scale-105 duration-300'>
                 <div className='object-center flex items-center justify-center'>
                     <Link to={`/product/slug/${product.name}`}>
                         <img
-                            className='w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] rounded-lg object-contain'
+                            className='w-[200px] h-[150px] sm:w-[200px] sm:h-[200px] lg:w-[300px] lg:h-[300px] rounded-lg object-contain'
                             src={product.img}
                             alt={product.name}
                         />
