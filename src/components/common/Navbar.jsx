@@ -15,15 +15,9 @@ const Navbar = () => {
     const { pathname } = useLocation();
 
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [userMenuOpen, setUserMenuOpen] = useState(false);
-
-    const dispatch = useDispatch();
 
     const toggleSidebar = () => {
         setSidebarOpen(!sidebarOpen);
-    };
-    const toggleMenu = () => {
-        setUserMenuOpen(!userMenuOpen);
     };
 
     return (
@@ -46,7 +40,7 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <ul className='md:w-[60%] hidden md:flex items-center gap-8 text-xl justify-center font-bold'>
+                <ul className='md:w-[60%] hidden md:flex items-center gap-8 text-lg justify-center font-bold'>
                     {menuConfigs.main.map((item, index) => (
                         <li key={index}>
                             <Link

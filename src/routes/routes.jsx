@@ -48,16 +48,6 @@ const routes = [
         element: <PlaceOrder />,
         state: 'place order',
     },
-    // {
-    //     path: '/order/:id',
-    //     element: <OrderDetails />,
-    //     state: 'place order',
-    // },
-    // {
-    //     path: '/orders',
-    //     element: <Orders />,
-    //     state: 'orderd history',
-    // },
 ];
 
 export { routes };

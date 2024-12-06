@@ -78,7 +78,7 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className='w-full text-center font-bold'>
-                        <h1>2024 Demo Page. All rights reverved</h1>
+                        <h1>2024 Demo Page. All rights reserved</h1>
                     </div>
                 </div>
             </footer>
