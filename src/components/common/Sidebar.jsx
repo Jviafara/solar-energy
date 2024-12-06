@@ -1,13 +1,10 @@
 import { Dialog, Transition, TransitionChild } from '@headlessui/react';
 import { Fragment, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import menuConfigs from '../../configs/menu.config';
 import Logo from './Logo';
 
 const Sidebar = ({ open, toggleSidebar }) => {
-    const { user } = useSelector((state) => state.user);
-
     const sideNavRef = useRef(null);
 
     useEffect(() => {
@@ -73,28 +70,6 @@ const Sidebar = ({ open, toggleSidebar }) => {
                                     </li>
                                 ))}
                             </ul>
-                            {user && (
-                                <div>
-                                    <h6 className='mt-6 mb-2 font-bold text-xl'>
-                                        USER
-                                    </h6>
-                                    <ul className='flex flex-col gap-2 ml-4 justify-center'>
-                                        {menuConfigs.user.map((item, index) => (
-                                            <li key={index}>
-                                                <Link
-                                                    to={item.path}
-                                                    onClick={toggleSidebar}
-                                                    className='flex max-w-max items-center gap-2 rounded-lg py-1 px-2 hover:bg-gray-400 hover:scale-10'>
-                                                    {item.icon}
-                                                    <h6 className='font-medium'>
-                                                        {item.display.toUpperCase()}
-                                                    </h6>
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
                         </div>
                     </TransitionChild>
                 )}

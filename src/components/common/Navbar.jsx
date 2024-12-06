@@ -6,13 +6,10 @@ import { TiThMenuOutline } from 'react-icons/ti';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import menuConfigs from '../../configs/menu.config';
-import { setAuthModalOpen } from '../../redux/features/authModalSlice';
 import Logo from './Logo';
 import Sidebar from './Sidebar';
-import UserMenu from './UserMenu';
 
 const Navbar = () => {
-    const { user } = useSelector((state) => state.user);
     const { cartItems } = useSelector((state) => state.cart);
 
     const { pathname } = useLocation();
@@ -32,7 +29,6 @@ const Navbar = () => {
     return (
         <div className='shadow-smbg-gray-200 bg-opacity-50 backdrop-blur-2xl py-4 md:px-4 text-black max-w-[100vw] w-full'>
             <Sidebar open={sidebarOpen} toggleSidebar={toggleSidebar} />
-            <UserMenu open={userMenuOpen} toggleMenu={toggleMenu} />
             <nav className='flex items-center justify-between gap-0 px-4'>
                 <div className='flex gap-4 w-full md:w-[25%]'>
                     <div
@@ -83,27 +79,11 @@ const Navbar = () => {
                             )}
                         </NavLink>
                     </li>
-                    {!user && (
-                        <li className='p-2 hover:shadow-lg rounded-full text-lg'>
-                            <button
-                                onClick={() => dispatch(setAuthModalOpen(true))}
-                                className='cursor-pointer flex items-center gap-1'>
-                                <h1>Sign In</h1>
-                            </button>
-                        </li>
-                    )}
-                    {user && (
-                        <li className='p-2 hover:shadow-lg rounded-full text-lg'>
-                            <div
-                                onClick={toggleMenu}
-                                className='flex gap-2 items-center'>
-                                <FaUserCircle size={24} />
-                                <h1 className='hidden md:inline-flex font-bold'>
-                                    {user?.name?.toUpperCase().split(' ')[0]}
-                                </h1>
-                            </div>
-                        </li>
-                    )}
+                    <li className='p-2 hover:shadow-lg rounded-full text-lg'>
+                        <button className='cursor-pointer flex items-center gap-1'>
+                            <h1>Sign In</h1>
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
